@@ -1,0 +1,176 @@
+/* Custom CSS for animations */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    animation: slideIn 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Add animation to the submit button */
+button[type="submit"] img {
+    margin-left: 5px;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+button[type="submit"]:hover img {
+    transform: rotate(360deg);
+}
+
+
+
+
+.nice-form-group>input[type=checkbox].switch {
+    width: var(--switch-width);
+    height: var(--switch-height);
+    border-radius: var(--switch-height);
+    position: relative
+}
+
+.nice-form-group>input[type=checkbox].switch:after {
+    background: var(--nf-input-border-color);
+    border-radius: var(--switch-orb-size);
+    height: var(--switch-orb-size);
+    left: var(--switch-orb-offset);
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: var(--switch-orb-size);
+    content: "";
+    transition: all .2s ease-out
+}
+
+.nice-form-group>input[type=checkbox].switch+label {
+    margin-top: calc(var(--switch-height)/8)
+}
+
+.nice-form-group>input[type=checkbox].switch:checked {
+    background: none;
+    background-position: 0 0;
+    background-color: var(--nf-input-focus-border-color)
+}
+
+.nice-form-group>input[type=checkbox].switch:checked:after {
+    -webkit-transform: translateY(-50%) translateX(calc(var(--switch-width)/2 - var(--switch-orb-offset)));
+    transform: translateY(-50%) translateX(calc(var(--switch-width)/2 - var(--switch-orb-offset)));
+    background: #fff
+}
+
+
+
+
+
+.nice-form-group>input[type=file] {
+    background: rgba(0, 0, 0, .025);
+    padding: var(--nf-input-size);
+    display: block;
+    width: 100%;
+    border-radius: var(--nf-input-border-radius);
+    border: 1px dashed var(--nf-input-border-color);
+    outline: none;
+    cursor: pointer
+}
+
+.nice-form-group>input[type=file]:focus,
+.nice-form-group>input[type=file]:hover {
+    border-color: var(--nf-input-focus-border-color)
+}
+
+.nice-form-group>input[type=file]::file-selector-button {
+    background: var(--nf-input-focus-border-color);
+    border: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: .5rem;
+    border-radius: var(--nf-input-border-radius);
+    color: #fff;
+    margin-right: 1rem;
+    outline: none;
+    font-family: var(--nf-input-font-family);
+    cursor: pointer
+}
+
+.nice-form-group>input[type=file]::-webkit-file-upload-button {
+    background: var(--nf-input-focus-border-color);
+    border: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    padding: .5rem;
+    border-radius: var(--nf-input-border-radius);
+    color: #fff;
+    margin-right: 1rem;
+    outline: none;
+    font-family: var(--nf-input-font-family);
+    cursor: pointer
+}

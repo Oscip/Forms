@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Form" description="Formular für IMS-Schülern">
+    <link href="index_style.css" rel="stylesheet">
+    <title>Formular</title>
+</head>
+
+<body>
+    <form action="https://webhook.site/d2a14ae0-6008-41a1-a0ef-b31ab815d91e" method="POST">
+        <input type="radio" id="mann" name="gender" value="man">
+        <label for="mann">Mann</label><br>
+        <input type="radio" id="frau" name="gender" value="man">
+        <label for="frau">Frau</label><br>
+        <label for="vorname">Vorname:</label>
+        <input type="text" id="vorname" name="vorname"><br><br>
+        <label for="nachname">Nachname:</label>
+        <input type="text" id="nachname" name="Nachname"><br><br>
+        <label for="strasse">Strasse:</label>
+        <input type="text" id="strasse" name="Strasse"><br><br>
+        <label for="strassenummer">Strassenummer:</label>
+        <input type="text" id="strassennummer" name="Strassennummber"><br><br>
+
+        <label for="platz">PLZ:</label>
+        <input type="text" id="platz" name="Platz"><br><br>
+        <label for="ort">Ort:</label>
+        <input type="text" id="ort" name="Ort"><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="Email-Adresse"><br><br>
+        <label for="telefonnummer">Telefonnummer:</label>
+        <input type="tel" id="telefonnummer" name="Telefonnummer"><br><br>
+
+        <label for="">Bevorzugte Art der Kontaktaufnahme:</label><br>
+        <input type="radio" id="email" name="Art der Kontaktaufnahme" value="Email">
+        <label for="email">Email</label><br>
+        <input type="radio" id="telefon" name="Art der Kontaktaufnahme" value="Telefon">
+        <label for="telefon">Telefon</label><br>
+        <input type="radio" id="brief" name="Art der Kontaktaufnahme" value="Brief">
+        <label for="brief">Brief</label><br><br>
+        <label for="datum">Geburtsdatum: </label>
+        <input type="date" id="datum" name="Geburtsdatum"><br><br>
+        <label for="motivationsschreiben"> Motivationsschreiben: </label>
+        <textarea id="motivationsschreiben" name="Motivationsschreiben"></textarea><br><br>
+        <label for="upload">Lebenslauf: </label>
+        <input type="file" id="upload" name="Lebenslauf" accept="application/pdf"><br><br>
+        <label for="porftolio">Portfolio: </label>
+        <input type="url" id="porftolio" name="Portfolio URL"><br><br>
+
+        <label for="github">Github-Account: </label>
+        <input type="url" id="github" name="Github Account"><br><br>
+        <input type="checkbox" id="datenschutzrichtlinie" name="Datenschutzrichtlinie" required>
+        <label for="datenschutzrichtlinie"> Ich akzeptiere die Allgemeinen Geschäftsbedingungen für die Anmeldung zu
+            diesem Dienst und bestätige hiermit, dass ich die <a
+                href="https://policies.google.com/privacy?hl=de">Datenschutzrichtlinie</a> gelesen habe.</label><br><br>
+        <button type="submit">Senden<img src="Images/Mail.png" width="10%" height="10%"></button>
+    </form>
+    <script>
+        function resetForm() {
+            document.getElementById("myForm").reset();
+        }
+
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            // Perform form submission here (e.g., AJAX request)
+            // Upon successful submission, display alert notification
+            alert("Form submitted successfully!");
+            // Reset the form
+            resetForm();
+        });
+    </script>
+
+</body>
+
+</html>
+
+<!--	• Geschlecht (Auswahl)
+	• Name
+	• Vorname
+	• Strasse und Nr.
+	• PLZ und Ort
+	• Email
+	• Handy-Nummer
+	• Bevorzugte Art der Kontaktaufnahme (Auswahl)
+	• Geburtsdatum (Datum-Auswahl)
+	• Motivationsschreiben (Text)
+	• Lebenslauf (PDF Upload)
+	• Link zu Portfolio (URL)
+	• Link zu Github-Account (URL)
+	• ext. Link zu Datenschutzbestimmungen des Unternehmens
+	• Akzeptieren der Datenschutzbestimmungen (Auswahl)
+Button mit Mail-Icon-->
