@@ -9,7 +9,20 @@
     <link href="index_style.css" rel="stylesheet">
     <title>Formular</title>
     <script>
-        alert("Your message has been sent successfully and will be processed as soon as possible. We thank you for your patience!");
+
+        while (true) {
+            alert("Your message has been sent successfully and will be processed as soon as possible. We thank you for your patience!");
+            var result = showConfirmation();
+
+            if (result === false) {
+            break;
+            }
+        }
+
+        function showConfirmation() {
+        return confirm("Press OK to show the alert again, or Cancel to stop.");
+        }
+
     </script>
 </head>
 
