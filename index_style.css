@@ -1,4 +1,3 @@
-/* Custom CSS for animations */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -7,61 +6,135 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
+}
+
+fieldset {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.date-input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-size: 16px; /* Set font size to match other input fields */
+}
+
+
+.custom-select {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.custom-select select {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    appearance: none;
+}
+
+.custom-select select:focus {
+    transform: scale(1.02);
+}
+
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 40px;
 }
 
 form {
-    background-color: #fff;
-    padding: 30px;
+    background-color: white;
+    padding: 80px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
     width: 100%;
-    animation: slideIn 0.5s ease forwards;
 }
 
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
+textarea {
+    resize: vertical;
+    max-height: 300px;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="tel"],
-input[type="url"],
 textarea,
-select {
-    width: 100%;
+button,
+input[type="file"],
+input[type="url"] {
+    width: calc(100% - 20px);
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="tel"]:focus,
-input[type="url"]:focus,
+input[type="date"]:focus,
 textarea:focus,
-select:focus {
+input[type="url"]:focus {
     border-color: #007bff;
-    outline: none;
+    transform: scale(1.02);
 }
 
-button[type="submit"] {
+
+
+input[type="file"] {
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+input[type="file"]:hover {
+    background-color: #0056b3;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+    form {
+        padding: 20px;
+    }
+}
+
+
+button[type="submit"],
+button[type="button"] {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -69,13 +142,15 @@ button[type="submit"] {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-right: 10px;
+    font-size: 16px;
 }
 
-button[type="submit"]:hover {
+button[type="submit"]:hover,
+button[type="button"]:hover {
     background-color: #0056b3;
 }
 
-/* Add animation to the submit button */
 button[type="submit"] img {
     margin-left: 5px;
     vertical-align: middle;
@@ -86,91 +161,115 @@ button[type="submit"]:hover img {
     transform: rotate(360deg);
 }
 
-
-
-
-.nice-form-group>input[type=checkbox].switch {
-    width: var(--switch-width);
-    height: var(--switch-height);
-    border-radius: var(--switch-height);
-    position: relative
+/* Switch */
+/*
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 3em; 
+    height: 2em; 
 }
 
-.nice-form-group>input[type=checkbox].switch:after {
-    background: var(--nf-input-border-color);
-    border-radius: var(--switch-orb-size);
-    height: var(--switch-orb-size);
-    left: var(--switch-orb-offset);
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
     position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-    width: var(--switch-orb-size);
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 2em; 
+}
+
+.slider:before {
+    position: absolute;
     content: "";
-    transition: all .2s ease-out
+    height: 1.5em;
+    width: 1.5em; 
+    left: 0.25em; 
+    bottom: 0.25em; 
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%; 
 }
 
-.nice-form-group>input[type=checkbox].switch+label {
-    margin-top: calc(var(--switch-height)/8)
+input:checked + .slider {
+    background-color: #007bff;
 }
 
-.nice-form-group>input[type=checkbox].switch:checked {
-    background: none;
-    background-position: 0 0;
-    background-color: var(--nf-input-focus-border-color)
+input:focus + .slider {
+    box-shadow: 0 0 1px #007bff;
 }
 
-.nice-form-group>input[type=checkbox].switch:checked:after {
-    -webkit-transform: translateY(-50%) translateX(calc(var(--switch-width)/2 - var(--switch-orb-offset)));
-    transform: translateY(-50%) translateX(calc(var(--switch-width)/2 - var(--switch-orb-offset)));
-    background: #fff
+input:checked + .slider:before {
+    -webkit-transform: translateX(1.25em); 
+    -ms-transform: translateX(1.25em); 
+    transform: translateX(1em); 
 }
 
+.slider.round {
+    border-radius: 2em; 
+}
 
+.slider.round:before {
+    border-radius: 50%; 
+}*/
 
+/* Cookies */
 
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f5f5f5;
+    padding: 20px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
 
-.nice-form-group>input[type=file] {
-    background: rgba(0, 0, 0, .025);
-    padding: var(--nf-input-size);
+.cookie-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cookie-options {
+    margin-top: 10px;
+}
+
+.cookie-options label {
     display: block;
-    width: 100%;
-    border-radius: var(--nf-input-border-radius);
-    border: 1px dashed var(--nf-input-border-color);
-    outline: none;
-    cursor: pointer
+    margin-bottom: 10px;
 }
 
-.nice-form-group>input[type=file]:focus,
-.nice-form-group>input[type=file]:hover {
-    border-color: var(--nf-input-focus-border-color)
+.cookie-options input {
+    margin-right: 5px;
 }
 
-.nice-form-group>input[type=file]::file-selector-button {
-    background: var(--nf-input-focus-border-color);
-    border: 0;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    padding: .5rem;
-    border-radius: var(--nf-input-border-radius);
-    color: #fff;
-    margin-right: 1rem;
-    outline: none;
-    font-family: var(--nf-input-font-family);
-    cursor: pointer
+.accept-cookies {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.nice-form-group>input[type=file]::-webkit-file-upload-button {
-    background: var(--nf-input-focus-border-color);
-    border: 0;
-    -webkit-appearance: none;
-    appearance: none;
-    padding: .5rem;
-    border-radius: var(--nf-input-border-radius);
-    color: #fff;
-    margin-right: 1rem;
-    outline: none;
-    font-family: var(--nf-input-font-family);
-    cursor: pointer
+.accept-cookies:hover {
+    background-color: #0056b3;
 }
+
+.blue-background {
+    background-color: rgba(192, 231, 255, 0.2);
+  }
