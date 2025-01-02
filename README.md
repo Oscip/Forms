@@ -1,0 +1,1 @@
+This is a form that should have nice animations and make it as easy as possible for people to register their information and then also to recieve this information via a webhook and then also send a message back to confirm it worked.
